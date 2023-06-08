@@ -7,9 +7,8 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
+import clsx from "clsx";
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,28 +22,23 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className={'min-h-screen flex flex-col justify-between'}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
+     
+
+      <main className={clsx('mb-auto')}>
+          <div className={"mx-auto max-w-7xl sm:px-6 lg:px-8"}>
+            {children}
+          </div>
+        </main>
+        
         <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        className={'h-16 bottom-0 flex items-center  w-full px-2 sm:px-6 lg:px-8 dark:bg-slate-100 /95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'}
+      ><div className={'font-light text-black mx-auto  max-w-7xl  w-full'}>
+          © {new Date().getFullYear()} &middot; Projects LRM
+        </div>
         </footer>
-      </div>
-    </>
+    </div>
   )
 }
 
