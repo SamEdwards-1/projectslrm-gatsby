@@ -1,18 +1,17 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require('path');
+const projects = require('./src/data/projects.json');
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions;
+
+  projects.forEach((project) => {
+    const { slug } = project;
+    const templatePath = path.resolve('./src/templates/project-template.js');
+
+    createPage({
+      path: `/projects/${slug}`,
+      component: templatePath,
+      context: project,
+    });
+  });
+};

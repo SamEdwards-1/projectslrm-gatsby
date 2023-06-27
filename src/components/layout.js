@@ -9,8 +9,10 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import clsx from "clsx";
 import Header from "./header"
+import BreakpointHint from "./breakpoint";
 
-const Layout = ({ children }) => {
+const Layout = ({ location, children}) => {
+  console.info('Layout location', location);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -36,6 +38,8 @@ const Layout = ({ children }) => {
         className={'h-16 bottom-0 flex items-center  w-full px-2 sm:px-6 lg:px-8 dark:bg-slate-100 /95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'}
       ><div className={'font-light text-black mx-auto  max-w-7xl  w-full'}>
           © {new Date().getFullYear()} &middot; Projects LRM
+
+          <BreakpointHint />
         </div>
         </footer>
     </div>

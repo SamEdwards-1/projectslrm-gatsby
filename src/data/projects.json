@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Central Park West",
+    "slug": "central-park-west",
+    "images":[
+      "../images/1E619D1D-F0F5-4827-A4F7-1BB60C573BD3.JPG",
+      "../images/0F24FB44-28CC-4B8F-BBC8-A1CE3A1A30D7.JPG",
+      "../images/60532D27-1221-4D53-818C-56315DDFDC55.JPG",
+      "../images/EFA4A5BB-3EA9-4986-B597-CD5CB0FDA6B4.JPG",
+      "../images/C53E84EC-6923-4378-AD92-947F2EE6A320.JPG",
+      "../images/70B72F63-7886-410B-BACE-87F85D71A42F.JPG",
+      "../images/E66C149D-D273-4D95-8419-275959A1DFC9.JPG",
+      "../images/03AB7FCA-82E5-4094-AE36-2510C08325E5.JPG"
+
+    ]
+  },
+  {
+    "title": "London Terrrace",
+    "slug": "london-terrace",
+    "images": [
+      "../images/DF6C6929-1E32-4993-A7A4-2E965EF65EAC.JPG",
+      "../images/9AC8089E-1185-4017-AFAB-C4676F477440.JPG",
+      "../images/6760AA4B-C9E1-4C75-8246-76E7FE1F35C6.JPG"
+    ]
+  },
+  {
+    "title": "Chelsea Penthouse Loft",
+    "slug": "chelsea-penthouse-loft",
+    "images": [
+      "../images/E603F62C-43F2-499A-B0A0-B1592A1D36E4.JPG",
+      "../images/0D0B6FAE-6698-433B-9AE3-009DDF84ECA8.JPG",
+      "../images/ECEA5BB9-E17D-4D28-A1DD-5B5C74C873A5.JPG",
+      "../images/76C40AD2-AB73-44E9-92BC-1311CAF935FA.JPG",
+      "../images/B8762788-3601-43D8-BA66-0510440FA057.JPG"
+
+    ]
+  }
+]
