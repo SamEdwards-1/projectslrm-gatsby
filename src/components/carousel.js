@@ -68,6 +68,7 @@ const ProjectCarousel = ({ images }) => {
         centerMode={false}
         preventMovementUntilSwipeScrollTolerance={true}
         animationHandler="fade"
+        autoFocus={true}
       >
         {/* <Carousel
       className={'h-full w-full'}

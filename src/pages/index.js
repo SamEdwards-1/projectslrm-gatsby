@@ -47,7 +47,7 @@ const IndexPage = ({ location, data }) => {
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" description="Projects LRM home page" children={undefined} />;
+export const Head = () => <Seo title="Home" description="Projects LRM home page" />;
 
 //proptype validation:
 IndexPage.propTypes = {

@@ -22,7 +22,7 @@ function Header ({ siteTitle }) {
   return (
     <nav className={clsx(' bg-white',
      
-      'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 shadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none sm:px-6 lg:px-8',
+      'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 sm:px-0 lg:px-0 shadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
       isScrolled
         ? 'dark:bg-slate-100/95 h-20 pb-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
         : 'dark:bg-transparent h-16  pb-0'
@@ -65,7 +65,7 @@ function Header ({ siteTitle }) {
 
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       <div className={'sm:hidden'} id="mobile-menu">
-        <div className={'space-y-1 pb-3 pt-2'}>
+        <div className={'space-y-1 pb-3 pt-2  hidden sm:flex sm:space-x-6 md:space-x-8 '}>
           {/* <!-- Current: "border-indigo-500 bg-indigo-50 text-indigo-700", Default: "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800" --> */}
          
           {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}

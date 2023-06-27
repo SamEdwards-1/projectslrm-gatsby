@@ -11,8 +11,8 @@ const ProjectTemplate = ({ pageContext }) => {
 
   return (<Layout>
     <ProjectsSubnav projects={projects} />
-    <div className={'px-2 sm:px-6 lg:px-8 w-full h-full mx-auto block'}>
-      <h1 className={'font-sans text-lg'}>{title}</h1>
+    <div className={'px-2 sm:px-0 w-full h-full mx-auto block'}>
+      {/* <h1 className={'font-serif text-md sm:text-2xl'}>{title}</h1> */}
       <ProjectCarousel images={images} />
     </div>
   </Layout>

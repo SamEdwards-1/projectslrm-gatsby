@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import clsx from 'clsx';
 import Header from './header';
 import BreakpointHint from './breakpoint';
+import PropTypes from 'prop-types';
 
 const Layout = ({ location, children}) => {
   console.info('Layout location', location);
@@ -44,6 +45,11 @@ const Layout = ({ location, children}) => {
       </footer>
     </div>
   );
+};
+
+Layout.propTypes = {
+  location: PropTypes.object.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 export default Layout;
