@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const themeScript = `
   let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
@@ -37,7 +37,7 @@ const themeScript = `
   }).observe(document.documentElement, { attributeFilter: ['data-theme'], attributeOldValue: true })
 
   isDarkMode.addEventListener('change', () => updateThemeWithoutTransitions())
-`
+`;
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes} className={'h-full'}>
@@ -54,14 +54,14 @@ export default function HTML(props) {
       <body {...props.bodyAttributes} className={'h-full'}> 
         {props.preBodyComponents}
         <div
-          key={`body`}
+          key={'body'}
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
       </body>
     </html>
-  )
+  );
 }
 
 HTML.propTypes = {

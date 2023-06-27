@@ -11,7 +11,7 @@ exports.createPages = ({ actions }) => {
     createPage({
       path: `/projects/${slug}`,
       component: templatePath,
-      context: project,
+      context: {project, projects}
     });
   });
 };
