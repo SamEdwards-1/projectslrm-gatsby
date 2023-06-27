@@ -41,7 +41,9 @@ function Header ({ siteTitle }) {
             </div>
            
           </div>
-          <div className={clsx('flex flex-shrink-0 items-center justify-items-end')}>
+          <div className={clsx('flex flex-shrink-0 items-center justify-items-center',
+            isScrolled ? 'translate-y-7' : 'translate-y-4'
+          )}>
             <LogoSVG className={clsx('block h-8 w-auto')} />
           
           </div>
