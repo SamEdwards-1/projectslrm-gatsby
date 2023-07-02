@@ -5,9 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import PropTypes from 'prop-types';
-
-
-
+import ProjectCarousel from '../components/carousel';
 // const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=projectslrm`;
 
 const IndexPage = ({ location, data }) => {
@@ -15,16 +13,10 @@ const IndexPage = ({ location, data }) => {
 
 
   return (<Layout location={location}>
-    <div>
-      <ul>
-        {projects.map((project) => (
-          <li key={project.slug}>
-            <Link to={`/projects/${project.slug}`}>
-              {project.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    < {/* <ProjectsSubnav projects={projects} /> */}
+    <div className={'px-2 sm:px-0 w-full h-full mx-auto block'}>
+      {/* <h1 className={'font-serif text-md sm:text-2xl'}>{title}</h1> */}
+      <ProjectCarousel images={images} />
     </div></Layout>
   );
   // return (<Layout>

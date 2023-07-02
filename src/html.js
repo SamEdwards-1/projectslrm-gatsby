@@ -40,7 +40,7 @@ const themeScript = `
 `;
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes} className={'h-full subpixel-antialiased'}>
+    <html {...props.htmlAttributes} className={'h-full'}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

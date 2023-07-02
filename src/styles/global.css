@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.carousel .thumb img {
+      height: fit-content;
+      max-height: auto;
+    }
+    .carousel .slide img {
+      max-height: initial;
+      max-width: 24rem;
+      height: fit-content;
+      object-fit: contain;
+      display:flex;
+          margin: auto;
+    }
+    .carousel .thumbs-wrapper .thumbs {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+@screen sm {
+   .carousel .thumb img {
+      height: auto;
+      max-height: auto;
+    }
+    .carousel .slide img {
+      max-height: 680px;
+      max-width: 42rem;
+      object-fit: contain;
+      display:flex;
+      margin:auto;
+    }
+}
+@screen md {
+   .carousel .thumb img {
+      height: auto;
+      max-height: auto;
+      height: fit-content;
+    }
+    .carousel .slide img {
+      max-height: 720px;
+      max-width: 100%;
+      object-fit: contain;
+      display:flex;
+    }
+}

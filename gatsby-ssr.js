@@ -10,7 +10,7 @@ import Layout from './src/components/layout';
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 export const onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en-US` });
+  setHtmlAttributes({ lang: 'en-US' });
 };
 
 export const wrapPageElement = ({ element, props }) => {

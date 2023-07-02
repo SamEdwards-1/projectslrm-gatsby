@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const LogoSVG = () => (
-  <svg width="100%" 
+  <svg height="100%" 
     viewBox="0 0 112.38 21.81" >
     <g>
       <path d="M10.55,15.19H9.49V8.97h3.47c0.25,0,0.52,0.02,0.81,0.05s0.57,0.11,0.82,0.25c0.26,0.13,0.47,0.33,0.64,0.6

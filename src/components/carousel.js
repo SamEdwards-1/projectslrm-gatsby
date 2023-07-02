@@ -18,7 +18,7 @@ const ProjectCarousel = ({ images }) => {
           relativePath
           childImageSharp {
             gatsbyImageData(
-              layout: FULL_WIDTH
+              layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
               quality: 100
@@ -51,15 +51,16 @@ const ProjectCarousel = ({ images }) => {
         </div>
       );
     })}  */}
-    <div className={'mx-auto my-auto p-2 sm:px-6 lg:px-8 block'}>
+    <div className={'mx-auto my-auto p-2 sm:px-6 lg:px-8  h-full'}>
       <Carousel
         showThumbs={true}
         showStatus={false}
         showIndicators={false}
         showArrows={false}
         infiniteLoop={true}
-        autoPlay={true}
+        autoPlay={false}
         dynamicHeight={true}
+        width={'100%'}
         interval={5000}
         transitionTime={1000}
         stopOnHover={true}
@@ -77,16 +78,16 @@ const ProjectCarousel = ({ images }) => {
           const imageData = getImageData('../images/' + image);
           console.info('imageData ' + image, imageData); 
           return imageData && 
-          // <div className={'h-96 max-w-6xl mx-auto'} key={`${image}_imageWrap_${index}`}>
-              <picture key={`${image}_${index}`}>
-                { imageData.images.sources.map((imageSource, index2) => 
-                  <source type={imageSource.type} srcSet={imageSource.srcSet} key={`${image}_source_${index2}`} />)}
-                {imageData.images.fallback && 
+          // <div className={'h-96 max-w-6xl mx-auto '} key={`${image}_imageWrap_${index}`}>
+            <picture key={`${image}_${index}`}>
+              { imageData.images.sources.map((imageSource, index2) => 
+                <source type={imageSource.type} srcSet={imageSource.srcSet} key={`${image}_source_${index2}`} />)}
+              {imageData.images.fallback && 
               <img src={imageData.images.fallback.src} 
-                className={'object-fit h-full w-full'}
+                style={{}}
                 key={`${image}_fallback_${index}`} 
                 alt="" /> }
-              </picture>;
+            </picture>;
           // </div>;
         })}
       </Carousel>

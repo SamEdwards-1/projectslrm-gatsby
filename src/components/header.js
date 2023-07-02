@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { navClassNames, activeNavClassNames } from './styles';
 import LogoSVG from './logo-svg';
 import PropTypes from 'prop-types';
+import ProjectsSubnav from './projects-subnav';
 
 function Header ({ siteTitle }) {
   let [isScrolled, setIsScrolled] = React.useState(false);
@@ -22,30 +23,38 @@ function Header ({ siteTitle }) {
   return (
     <nav className={clsx(' bg-white',
      
-      'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 sm:px-0 lg:px-0 shadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
+      'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8 sshadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
       isScrolled
-        ? 'dark:bg-slate-100/95 h-20 pb-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
+        ? 'dark:bg-slate-100/95 h-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
         : 'dark:bg-transparent h-16  pb-0'
     )
     }>
       <div className={clsx('w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8')}>
         <div className={clsx('flex h-8 justify-between')}>
-          <div className={clsx('flex justify-self-start')}>
+          <div className={clsx('flex flex-shrink-0 mr-14')}>
           
             <div className={clsx('hidden sm:flex sm:space-x-8 h-8')}>
-              {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
-              {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}
-              <Link activeClassName={activeNavClassNames} className={navClassNames} to="/about">About</Link>
-              <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
+              <LogoSVG className={clsx('block h-8 w-auto')} />
+              
               
             </div>
            
           </div>
-          <div className={clsx('flex flex-shrink-0 items-center justify-items-center',
-            isScrolled ? 'translate-y-7' : 'translate-y-4'
+
+          <div className={clsx('flex')}>
+            <ProjectsSubnav />
+            
+          </div>
+
+          <div className={clsx('flex flex-shrink-0 items-center justify-items-center'
+           
           )}>
-            <LogoSVG className={clsx('block h-8 w-auto')} />
-          
+            
+            {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
+            {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}
+            {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/about">About</Link> */}
+            <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
+
           </div>
        
           <div className={clsx('mr-2 flex items-center sm:hidden')}>

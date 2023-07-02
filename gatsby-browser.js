@@ -1,2 +1,2 @@
-import './src/styles/global.css'
-import './src/styles/carousel.css'
+import './src/styles/global.css';
+import './src/styles/carousel.css';
