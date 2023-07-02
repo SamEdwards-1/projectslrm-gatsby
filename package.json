@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "clsx": "^1.2.1",
     "gatsby": "^5.10.0",
     "gatsby-omni-font-loader": "^2.0.2",

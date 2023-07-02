@@ -1,13 +1,29 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import clsx from 'clsx';
 import { navClassNames, activeNavClassNames } from './styles';
 import LogoSVG from './logo-svg';
 import PropTypes from 'prop-types';
-import ProjectsSubnav from './projects-subnav';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 function Header ({ siteTitle }) {
+  const data = useStaticQuery(graphql`
+    query {
+    allProjectsJson {
+      nodes {
+        title
+        slug
+      }
+    }
+  }
+  `);
+  const projects = data.allProjectsJson.nodes;
   let [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prevState) => !prevState);
+  };
 
   React.useEffect(() => {
     function onScroll() {
@@ -20,7 +36,7 @@ function Header ({ siteTitle }) {
     };
   }, []);
 
-  return (
+  return (<>
     <nav className={clsx(' bg-white',
      
       'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8 sshadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
@@ -31,22 +47,44 @@ function Header ({ siteTitle }) {
     }>
       <div className={clsx('w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8')}>
         <div className={clsx('flex h-8 justify-between')}>
-          <div className={clsx('flex flex-shrink-0 mr-14')}>
+          <div className={clsx('flex flex-shrink-0 sm:mr-14')}>
           
-            <div className={clsx('hidden sm:flex sm:space-x-8 h-8')}>
+            <div className={clsx('flex h-10 sm:h-8')}>
               <LogoSVG className={clsx('block h-8 w-auto')} />
-              
-              
+
+
             </div>
            
           </div>
 
-          <div className={clsx('flex')}>
-            <ProjectsSubnav />
-            
+          <div className={clsx('hidden lg:flex')}>
+            <nav className={clsx(' bg-white',
+
+              'max-w-7xl sticky px-2 mb-7 sm:px-0 top-0 z-50 sm:space-x-8 flex items-center justify-start  bg-transparent shadow-md shadow-slate-100/5 transition duration-200 dark:shadow-none ',
+              // isScrolled
+              //   //? 'dark:bg-slate-100/85 translate-y-8 h-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
+              //   ? 'bg-transparent dark:bg-transparent translate-y-10 h-8 '
+              //   : 'dark:bg-transparent translate-y-0 h-8'
+              'dark:bg-transparent translate-y-0 h-8'
+            )
+            }>
+              {projects.map((project, index) => (
+                <div className={clsx('flex h-8 justify-between')} key={`project-subnav-${project.slug}`}>
+                  <div className={clsx('flex h-8 justify-self-start')}>
+
+                    <div className={clsx('h-8 flex sm:space-x-6 md:space-x-8')}>
+
+                      <Link key={index} activeClassName={activeNavClassNames} className={navClassNames} to={`/projects/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </nav>
           </div>
 
-          <div className={clsx('flex flex-shrink-0 items-center justify-items-center'
+          <div className={clsx('hidden lg:flex flex-shrink-0 items-center justify-items-center'
            
           )}>
             
@@ -56,38 +94,66 @@ function Header ({ siteTitle }) {
             <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
 
           </div>
-       
-          <div className={clsx('mr-2 flex items-center sm:hidden')}>
+
+          <div className={clsx('mr-2 flex items-center lg:hidden')}>
             {/* <!-- Mobile menu button --> */}
-            <button type="button" className={clsx('inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')} aria-controls="mobile-menu" aria-expanded="false">
+            <button type="button" className={clsx('inline-flex items-center justify-center rounded-md bg-white p-2', 
+              'text-gray-400 hover:bg-gray-100 hover:text-gray-500', 
+              'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')} aria-controls="mobile-menu"
+            aria-expanded={isMobileMenuOpen}
+            onClick={toggleMobileMenu}>
               <span className={clsx('sr-only')}>Open main menu</span>
               {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
-              <svg className={clsx('block h-6 w-6')} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              {/* <!-- Menu open: "block", Menu closed: "hidden" --> */}
-              <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <Bars3Icon className={clsx('h-6 w-6', isMobileMenuOpen ? 'hidden' : 'block')} aria-hidden={isMobileMenuOpen} />
+
+              {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
+              <XMarkIcon className={clsx('h-6 w-6', !isMobileMenuOpen ? 'hidden' : 'block')} aria-hidden={!isMobileMenuOpen} />
             </button>
           </div>
         </div>
       </div>
 
-      {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-      <div className={'sm:hidden'} id="mobile-menu">
-        <div className={'space-y-1 pb-3 pt-2  hidden sm:flex sm:space-x-6 md:space-x-8 '}>
-          {/* <!-- Current: "border-indigo-500 bg-indigo-50 text-indigo-700", Default: "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800" --> */}
-         
-          {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}
-          <Link activeClassName={activeNavClassNames} className={navClassNames} to="/about">About</Link>
-          <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
-         
-         
+     
+     
+    </nav>
+    <Dialog as="div" className="lg:hidden" open={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
+      <div className="fixed inset-0 z-20" />
+      <Dialog.Panel className="fixed inset-y-0 right-10 z-20 w-full h-96 overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div className="flex items-center justify-between">
+          <Link to="/" >
+            <div className={clsx('flex h-10 sm:h-8')}>
+              <LogoSVG className={clsx('block h-8 w-auto')} />
+
+            </div>
+          </Link>
+          <button
+            type="button"
+            className="rounded-md p-2.5 text-gray-700"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <span className="sr-only">Close menu</span>
+            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+          </button>
         </div>
-        
-      </div>
-    </nav>);
+        <div className="mt-6 flow-root">
+          <div className="-my-6 divide-y divide-gray-500/10">
+            <div className="space-y-2 py-6 block">
+              
+                {projects.map((project, index) => (
+
+                  <Link key={index} activeClassName={` ${activeNavClassNames} block`} key={`project-subnav-${project.slug}-b`} className={` ${navClassNames} block`} to={`/projects/${project.slug}`}>
+                          {project.title}
+                        </Link>
+                ))}
+            </div>
+            <div className="py-6">
+              <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
+            </div>
+          </div>
+        </div>
+      </Dialog.Panel>
+    </Dialog>
+  </>);
 }
 
 Header.propTypes = {

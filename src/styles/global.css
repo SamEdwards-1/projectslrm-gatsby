@@ -16,10 +16,12 @@
     .carousel .thumbs-wrapper .thumbs {
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: center;
       align-items: center;
       margin-top: 1rem;
       flex-wrap: wrap;
+      width: auto;
+      margin: auto auto;
     }
 @screen sm {
    .carousel .thumb img {
