@@ -1,6 +1,6 @@
 {
   "colorWheel.settings.workspaceColor": "hsl(338,91%,17%)",
-  "workbench.colorTheme": "Dark Modern",
+  "workbench.colorTheme": "Red",
   "files.associations": {
     "*.js": "javascriptreact"
   }

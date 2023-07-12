@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Work Sans', ...defaultTheme.fontFamily.sans],
-        'serif': ['Didot', ...defaultTheme.fontFamily.serif],
+        'serif': ['EB Garamond', ...defaultTheme.fontFamily.serif],
       },
     },
   },

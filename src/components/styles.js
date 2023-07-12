@@ -1,2 +1,2 @@
-export const navClassNames = 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-700 items-center border-b-2 px-0 pt-1 text-sm lg:text-xs xl:text-sm h-8 font-medium tracking-tight';
+export const navClassNames = 'font-serif border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-700 items-center border-b-2 px-0 pt-1 text-sm lg:text-sm xl:text-sm h-8 font-medium tracking-tight';
 export const activeNavClassNames = 'border-indigo-700 text-slate-900  items-center border-b-2 px-1 pt-1 text-sm tracking-tight font-medium h-8';

@@ -13,7 +13,6 @@ import BreakpointHint from './breakpoint';
 import PropTypes from 'prop-types';
 
 const Layout = ({ children }) => {
-  console.info('Layout location', location);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -37,12 +36,14 @@ const Layout = ({ children }) => {
         
       <footer
         className={'h-16 bottom-0 flex items-center  w-full px-2 sm:px-0 lg:px-8 dark:bg-slate-100 /95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'}
-      ><div className={'font-light text-slate-400 ml-auto text-sm max-w-7xl  w-full'}>
+      >
+        <div className={'w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'}>
+         <div className={'font-light text-slate-400 text-sm font-serif ml-8 '}>
           © {new Date().getFullYear()} &middot; Projects LRM
 
          
-        </div>
-        <BreakpointHint />
+          </div> </div>
+        {/* <BreakpointHint /> */}
       </footer>
     </div>
   );
