@@ -101,7 +101,7 @@
       border: 3px solid #ccc;
       outline: none; }
     .carousel .thumb.selected, .carousel .thumb:hover {
-      border: 3px solid #333; }
+      border: 3px solid rgb(212 212 216 ); }
     .carousel .thumb img {
       vertical-align: top; }
   .carousel.carousel-slider {

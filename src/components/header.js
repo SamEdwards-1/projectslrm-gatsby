@@ -97,9 +97,9 @@ function Header ({ siteTitle }) {
 
           <div className={clsx('mr-2 flex items-center lg:hidden')}>
             {/* <!-- Mobile menu button --> */}
-            <button type="button" className={clsx('inline-flex z-50 items-center justify-center rounded-md bg-white p-2', 
+            <button type="button" className={clsx('inline-flex z-50 items-center justify-center bg-white p-2', 
               'text-gray-400 hover:bg-gray-100 hover:text-gray-500', 
-              'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')} aria-controls="mobile-menu"
+              'focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2')} aria-controls="mobile-menu"
             aria-expanded={isMobileMenuOpen}
             onClick={toggleMobileMenu}>
               <span className={clsx('sr-only')}>Open main menu</span>
@@ -128,9 +128,9 @@ function Header ({ siteTitle }) {
           </Link> */}
           <button
             type="button"
-            className={clsx('inline-flex items-center justify-center rounded-md bg-white p-2',
+            className={clsx('inline-flex items-center justify-center bg-white p-2',
               'text-gray-400 hover:bg-gray-100 hover:text-gray-500',
-              'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 block')}
+              'focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2 block')}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="sr-only">Close menu</span>
@@ -144,8 +144,8 @@ function Header ({ siteTitle }) {
                 {projects.map((project, index) => (
 
                   <Link key={index} activeClassName={` ${activeNavClassNames} `} key={`project-subnav-${project.slug}-b`} className={` ${navClassNames} inline-block`} to={`/projects/${project.slug}`}>
-                          {project.title}
-                        </Link>
+                    {project.title}
+                  </Link>
                 ))}
             </div>
             <div className="py-6">

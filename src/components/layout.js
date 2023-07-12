@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <div className={'min-h-screen block px-0'}>
+    <div className={'min-h-screen flex flex-col px-0'}>
       <Header siteTitle={data.site.siteMetadata?.title || 'Title'} />
      
 
