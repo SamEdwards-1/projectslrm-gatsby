@@ -37,7 +37,7 @@ function Header ({ siteTitle }) {
   }, []);
 
   return (<>
-    <nav className={clsx(' bg-white',
+    <div className={clsx(' bg-white',
      
       'sticky top-0 z-20 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8 sshadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
       isScrolled
@@ -48,13 +48,9 @@ function Header ({ siteTitle }) {
       <div className={clsx('w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8')}>
         <div className={clsx('flex h-8 justify-between')}>
           <div className={clsx('flex flex-shrink-0 sm:mr-14')}>
-          
             <div className={clsx('flex h-10 sm:h-8')}>
               <LogoSVG className={clsx('block h-8 w-auto')} />
-
-
             </div>
-           
           </div>
 
           <div className={clsx('hidden lg:flex')}>
@@ -71,9 +67,7 @@ function Header ({ siteTitle }) {
               {projects.map((project, index) => (
                 <div className={clsx('flex h-8 justify-between')} key={`project-subnav-${project.slug}`}>
                   <div className={clsx('flex h-8 justify-self-start')}>
-
                     <div className={clsx('h-8 flex sm:space-x-6 md:space-x-8')}>
-
                       <Link key={index} activeClassName={activeNavClassNames} className={navClassNames} to={`/projects/${project.slug}`}>
                         {project.title}
                       </Link>
@@ -115,7 +109,7 @@ function Header ({ siteTitle }) {
 
      
      
-    </nav>
+    </div>
     <Dialog as="div" className="lg:hidden" open={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
       <div className="fixed inset-0 " />
       <Dialog.Panel className="fixed inset-y-0 right-10 z-20 w-full h-80 overflow-y-auto bg-white px-8 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">

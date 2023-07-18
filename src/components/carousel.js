@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -31,26 +31,17 @@ const ProjectCarousel = ({ images }) => {
 `);
 
   const getImageData = (imagePath) => {
-    console.info('getImageData', imagePath);
+    //console.info('getImageData', imagePath);
     const imageNode = data.allFile.edges.find(
       (edge) => {
         return `../images/${edge.node.relativePath}` === imagePath;
       }
     );
-    console.info('imageNode', imageNode);
+    //console.info('imageNode', imageNode);
     return getImage(imageNode.node);
   };
 
   return (<>
-    {/* {images.map((image, index) => {
-      const imageDataDebug = getImageData('../images/' + image);
-      console.info('imageDataDebug', imageDataDebug);
-      return (
-        <div key={index}>
-          {imageDataDebug && <GatsbyImage image={imageDataDebug} alt="" />}
-        </div>
-      );
-    })}  */}
     <div className={'mx-auto my-auto p-2 sm:px-6 lg:px-8  h-full'}>
       <Carousel
         showThumbs={true}
@@ -71,14 +62,11 @@ const ProjectCarousel = ({ images }) => {
         animationHandler="fade"
         autoFocus={true}
       >
-        {/* <Carousel
-      className={'h-full w-full'}
-    > */}
+       
         {images.map((image, index) => {
           const imageData = getImageData('../images/' + image);
           console.info('imageData ' + image, imageData); 
           return imageData && 
-          // <div className={'h-96 max-w-6xl mx-auto '} key={`${image}_imageWrap_${index}`}>
             <picture key={`${image}_${index}`}>
               { imageData.images.sources.map((imageSource, index2) => 
                 <source type={imageSource.type} srcSet={imageSource.srcSet} key={`${image}_source_${index2}`} />)}
@@ -88,14 +76,14 @@ const ProjectCarousel = ({ images }) => {
                 key={`${image}_fallback_${index}`} 
                 alt="" /> }
             </picture>;
-          // </div>;
         })}
       </Carousel>
     </div>
   </>);
 };
-//proptypes validation:
+
 ProjectCarousel.propTypes = {
   images: PropTypes.array,
 };
+
 export default ProjectCarousel;
