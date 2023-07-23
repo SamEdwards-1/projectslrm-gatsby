@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import clsx from 'clsx';
 import Header from './header';
 import PropTypes from 'prop-types';
+// import BreakpointHint from './breakpoint';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,10 +35,10 @@ const Layout = ({ children }) => {
         className={'h-16 bottom-0 flex items-center  w-full px-2 sm:px-0 lg:px-8 dark:bg-slate-100 /95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'}
       >
         <div className={'w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'}>
-         <div className={'font-light text-slate-400 text-sm font-serif ml-8 '}>
+          <div className={'font-light text-slate-400 text-sm font-serif ml-8 '}>
           © {new Date().getFullYear()} &middot; Projects LRM
           </div> 
-          </div>
+        </div>
         {/* <BreakpointHint /> */}
       </footer>
     </div>

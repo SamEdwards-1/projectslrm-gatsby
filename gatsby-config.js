@@ -29,9 +29,6 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
 
-        jpegQuality: 100,
-        pngQuality: 100,
-        webpQuality: 100,
         // Defaults used for gatsbyImageData and StaticImage
         defaults: {
         },

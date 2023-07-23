@@ -39,7 +39,7 @@ function Header ({ siteTitle }) {
   return (<>
     <div className={clsx(' bg-white',
      
-      'sticky top-0 z-20 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8 sshadow-md shadow-slate-100/5 transition duration-500 dark:shadow-none',
+      'sticky top-0 z-20 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8  shadow-slate-100/5 transition duration-500 dark:shadow-none',
       isScrolled
         ? 'dark:bg-slate-100/95 h-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
         : 'dark:bg-transparent h-16  pb-0'
@@ -85,7 +85,7 @@ function Header ({ siteTitle }) {
             {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
             {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}
             {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/about">About</Link> */}
-            <Link activeClassName={activeNavClassNames} className={navClassNames} to="/contact">Contact</Link>
+            <a href="mailto:leo@projectslrm.com" target="_blank" className={` ${navClassNames} inline-block`}>Contact</a>
 
           </div>
 
@@ -112,14 +112,8 @@ function Header ({ siteTitle }) {
     </div>
     <Dialog as="div" className="lg:hidden" open={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
       <div className="fixed inset-0 " />
-      <Dialog.Panel className="fixed inset-y-0 right-10 z-20 w-full h-80 overflow-y-auto bg-white px-8 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <Dialog.Panel className="shadow-md fixed inset-y-0 right-0 sm:right-6 z-20 w-full h-80 overflow-y-auto bg-white px-6 sm:px-8 py-3 max-w-xs sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-end">
-          {/* <Link to="/" >
-            <div className={clsx('flex h-10 sm:h-8')}>
-              <LogoSVG className={clsx('block h-8 w-auto')} />
-
-            </div>
-          </Link> */}
           <button
             type="button"
             className={clsx('inline-flex items-center justify-center bg-white p-2',
@@ -132,18 +126,17 @@ function Header ({ siteTitle }) {
           </button>
         </div>
         <div className="mt-0 flow-root">
-          <div className="-my-6 divide-y divide-gray-500/10">
+          <div className="-my-6 divide-y divide-gray-200">
             <div className="space-y-2 py-6 flex flex-col items-start">
-              
-                {projects.map((project, index) => (
+              {projects.map((project, index) => (
 
-                  <Link key={index} activeClassName={` ${activeNavClassNames} `} key={`project-subnav-${project.slug}-b`} className={` ${navClassNames} inline-block`} to={`/projects/${project.slug}`}>
-                    {project.title}
-                  </Link>
-                ))}
+                <Link activeClassName={` ${activeNavClassNames} `} key={`project-subnav-${project.slug}-b`} className={` ${navClassNames} inline-block`} to={`/projects/${project.slug}`}>
+                  {project.title}
+                </Link>
+              ))}
             </div>
             <div className="py-6">
-              <a href="mailto:leo@projectslrm.com" className={` ${navClassNames} inline-block`}>Contact</a>
+              <a href="mailto:leo@projectslrm.com" target="_blank" className={` ${navClassNames} inline-block`}>Contact</a>
             </div>
           </div>
         </div>
