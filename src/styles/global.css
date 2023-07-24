@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .carousel .thumb img {
-      height: fit-content;
-      max-height: auto;
+      height: auto;
+      max-height: unset;
     }
     .carousel .slide img {
       max-height: initial;
