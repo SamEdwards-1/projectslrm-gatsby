@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .carousel .thumb img {
-      height: auto;
+      height: unset;
       max-height: unset;
     }
     .carousel .slide img {
@@ -26,8 +26,8 @@
     }
 @screen sm {
    .carousel .thumb img {
-      height: auto;
-      max-height: auto;
+      height: unset;
+      max-height: unset;
     }
     .carousel .slide img {
       max-height: 680px;
@@ -39,9 +39,8 @@
 }
 @screen md {
    .carousel .thumb img {
-      height: auto;
-      max-height: auto;
-      height: fit-content;
+      height: unset;
+      max-height: unset;
     }
     .carousel .slide img {
       max-height: 720px;
