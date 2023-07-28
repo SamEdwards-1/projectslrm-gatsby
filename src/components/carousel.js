@@ -49,18 +49,20 @@ const ProjectCarousel = ({ images }) => {
         showIndicators={false}
         showArrows={false}
         infiniteLoop={true}
-        autoPlay={false}
+        autoPlay={true}
         dynamicHeight={true}
         width={'100%'}
         interval={5000}
         transitionTime={1000}
         stopOnHover={true}
-        swipeable={true}
-        emulateTouch={true}
+        emulateTouch={false}
         centerMode={false}
         preventMovementUntilSwipeScrollTolerance={true}
         animationHandler="fade"
-        autoFocus={true}
+        autoFocus={false}
+        renderArrowNext={false}
+        renderArrowPrev={false}
+        swipeable={false}
       >
        
         {images.map((image, index) => {

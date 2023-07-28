@@ -38,8 +38,8 @@ function Header ({ siteTitle }) {
 
   return (<>
     <div className={clsx(' bg-white',
-     
-      'sticky top-0 z-20 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8  shadow-slate-100/5 transition duration-500 dark:shadow-none',
+      'sticky top-0 z-20 flex flex-wrap items-center justify-between bg-white px-2 sm:px-6 lg:px-8',
+      ' shadow-slate-100/5 transition duration-500 dark:shadow-none',
       isScrolled
         ? 'dark:bg-slate-100/95 h-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
         : 'dark:bg-transparent h-16  pb-0'
@@ -55,8 +55,8 @@ function Header ({ siteTitle }) {
 
           <div className={clsx('hidden lg:flex')}>
             <nav className={clsx(' bg-white',
-
-              'max-w-7xl sticky px-2 mb-7 sm:px-0 top-0 z-20 sm:space-x-8 flex items-center justify-start  bg-transparent shadow-md shadow-slate-100/5 transition duration-200 dark:shadow-none ',
+              'max-w-7xl sticky px-2 mb-7 sm:px-0 top-0 z-20 sm:space-x-8 flex items-center justify-start',  
+              'bg-transparent shadow-md shadow-slate-100/5 transition duration-200 dark:shadow-none ',
               // isScrolled
               //   //? 'dark:bg-slate-100/85 translate-y-8 h-10 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-100/75'
               //   ? 'bg-transparent dark:bg-transparent translate-y-10 h-8 '
@@ -78,15 +78,12 @@ function Header ({ siteTitle }) {
             </nav>
           </div>
 
-          <div className={clsx('hidden lg:flex flex-shrink-0 items-center justify-items-center'
-           
-          )}>
-            
+          <div className={clsx('hidden lg:flex flex-shrink-0 items-center justify-items-center')}>
             {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
             {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/">Projects</Link> */}
             {/* <Link activeClassName={activeNavClassNames} className={navClassNames} to="/about">About</Link> */}
+            {/* eslint-disable-next-line react/jsx-no-target-blank */}
             <a href="mailto:leo@projectslrm.com" target="_blank" className={` ${navClassNames} inline-block`}>Contact</a>
-
           </div>
 
           <div className={clsx('mr-2 flex items-center lg:hidden')}>
@@ -99,20 +96,17 @@ function Header ({ siteTitle }) {
               <span className={clsx('sr-only')}>Open main menu</span>
               {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
               <Bars3Icon className={clsx('h-6 w-6', isMobileMenuOpen ? 'hidden' : 'block')} aria-hidden={isMobileMenuOpen} />
-
-              {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
               <XMarkIcon className={clsx('h-6 w-6', !isMobileMenuOpen ? 'hidden' : 'block')} aria-hidden={!isMobileMenuOpen} />
             </button>
           </div>
         </div>
       </div>
-
-     
-     
     </div>
+
     <Dialog as="div" className="lg:hidden" open={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
       <div className="fixed inset-0 " />
-      <Dialog.Panel className="shadow-md fixed inset-y-0 right-0 sm:right-6 z-20 w-full h-80 overflow-y-auto bg-white px-6 sm:px-8 py-3 max-w-xs sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <Dialog.Panel className={clsx('shadow-md fixed inset-y-0 right-0 sm:right-6 z-20 w-full h-80 overflow-y-auto', 
+        'bg-white px-6 sm:px-8 py-3 max-w-xs sm:max-w-sm sm:ring-1 sm:ring-gray-900/10')}>
         <div className="flex items-center justify-end">
           <button
             type="button"
@@ -129,13 +123,16 @@ function Header ({ siteTitle }) {
           <div className="-my-6 divide-y divide-gray-200">
             <div className="space-y-2 py-6 flex flex-col items-start">
               {projects.map((project, index) => (
-
-                <Link activeClassName={` ${activeNavClassNames} `} key={`project-subnav-${project.slug}-b`} className={` ${navClassNames} inline-block`} to={`/projects/${project.slug}`}>
+                <Link activeClassName={` ${activeNavClassNames} `} 
+                  key={`project-subnav-${project.slug}-b`} 
+                  className={` ${navClassNames} inline-block`} 
+                  to={`/projects/${project.slug}`}>
                   {project.title}
                 </Link>
               ))}
             </div>
             <div className="py-6">
+              {/* eslint-disable-next-line react/jsx-no-target-blank */}
               <a href="mailto:leo@projectslrm.com" target="_blank" className={` ${navClassNames} inline-block`}>Contact</a>
             </div>
           </div>
