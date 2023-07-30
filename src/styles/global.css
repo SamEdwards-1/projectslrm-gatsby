@@ -25,6 +25,9 @@
   width: auto;
   margin: auto auto;
 }
+.carousel-root .carousel.carousel-slider .thumbs.animated {
+  transform: translate3d(0px, 0px, 0px) !important;
+}
 @screen sm {
   .carousel .thumb img {
     height: unset;
