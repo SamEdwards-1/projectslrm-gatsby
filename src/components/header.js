@@ -48,8 +48,10 @@ function Header ({ siteTitle }) {
       <div className={clsx('w-full h-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8')}>
         <div className={clsx('flex h-8 justify-between')}>
           <div className={clsx('flex flex-shrink-0 sm:mr-14')}>
-            <div className={clsx('flex h-10 sm:h-8')}>
-              <LogoSVG className={clsx('block h-8 w-auto')} />
+            <div className={clsx('flex h-10 sm:h-8 overflow-hidden')}>
+              <div className={clsx('block h-8 w-auto relative -t-1.5')}>
+                <LogoSVG  />
+              </div>
             </div>
           </div>
 
