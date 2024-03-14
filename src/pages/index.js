@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 const IndexPage = () => {
   useEffect(() => {
     // Redirect to the first project page
-    navigate('/projects/first-project-slug', { replace: true });
+    navigate('/projects/central-park-west', { replace: true });
   }, []);
 
   return (

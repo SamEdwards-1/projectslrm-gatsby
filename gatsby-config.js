@@ -12,7 +12,7 @@ module.exports = {
     title: 'Projects LRM',
     description: 'Bespoke Interiors and Renovations',
     author: 'Leo Mascotte',
-    siteUrl: 'https://projectslrm.com/',
+    siteUrl: 'https://www.projectslrm.com/',
   },
   plugins: [
     'gatsby-plugin-postcss',
